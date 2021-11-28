@@ -1,0 +1,5 @@
+{
+  "subdomain" : "{zendesk subdomain}",
+  "name" : "{zendesk account name/email}",
+  "password" : "{zendesk account password}"
+}
