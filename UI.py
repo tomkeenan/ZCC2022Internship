@@ -107,7 +107,7 @@ class UI:
     # displays menu on console
     @staticmethod
     def __display_menu():
-        print("\n----------------------------------------\n"
+        print("----------------------------------------\n"
               "-> Enter 1 to view all tickets on current page\n"
               "-> Enter 2 to view a ticket by it's ID\n"
               "-> Enter \'+\' to view the next page\n"
