@@ -5,6 +5,7 @@ import requests
 # class to handle tickets returned by Zendesk API
 class TicketHandler:
     _PAGE_LENGTH = 25
+
     def __init__(self):
         self._user_info = self._read_user_info()
         self._url = f'https://{self._user_info["subdomain"]}.zendesk.com/api/v2/tickets.json?page[size]={self._PAGE_LENGTH}'
@@ -22,6 +23,8 @@ class TicketHandler:
         data = response.json()
         return data
 
+    # returns page of tickets if present on account
+    # returns None otherwise
     def get_page_of_tickets(self):
         data = self._request_data(self._url)
         tickets = data['tickets']
@@ -29,6 +32,17 @@ class TicketHandler:
             return tickets
         else:
             return None
+
+    # finds ticket using its unique id
+    # returns ticket if present
+    # returns None otherwise
+    def get_ticket_from_id(self, ticket_id):
+        url = f'https://{self._user_info["subdomain"]}.zendesk.com/api/v2/tickets/{ticket_id}.json'
+        response = self.get_response(url)
+        if response.status_code != 200:
+            return None
+        data = response.json()
+        return data['ticket']
 
     @staticmethod
     def _read_user_info():
