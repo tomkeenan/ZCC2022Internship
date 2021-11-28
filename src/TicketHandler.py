@@ -15,10 +15,12 @@ class TicketHandler:
     def get_response(self,url):
         return requests.get(url, auth=(self._user_info["name"], self._user_info["password"]))
 
+    # returns dictionary of json data from url
+    # notifies user if api did not connect and closes program
     def _request_data(self, url):
         response = self.get_response(url)
         if response.status_code != 200:
-            print('Status:', response.status_code, 'Problem connecting to the API. Exiting.')
+            print('Status:', response.status_code, 'Problem connecting to the API. Exiting program.')
             exit()
         data = response.json()
         return data
@@ -71,7 +73,7 @@ class TicketHandler:
 
     @staticmethod
     def _read_user_info():
-        with open("user_info.json", 'r') as file:
+        with open("resources/user_info.json", 'r') as file:
             credentials = json.load(file)
             return credentials
 

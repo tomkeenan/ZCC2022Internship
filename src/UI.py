@@ -1,5 +1,5 @@
 from datetime import datetime
-from TicketHandler import TicketHandler
+from src.TicketHandler import TicketHandler
 
 
 class UI:

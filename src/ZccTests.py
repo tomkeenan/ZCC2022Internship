@@ -1,5 +1,5 @@
 import unittest
-from TicketHandler import TicketHandler
+from src.TicketHandler import TicketHandler
 
 
 class ZccTests(unittest.TestCase):
