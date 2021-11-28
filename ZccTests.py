@@ -18,4 +18,8 @@ class ZccTests(unittest.TestCase):
         response = th.get_response(url)
         self.assertNotEqual(response.status_code, 200)
 
-
+    def test_get_page_of_tickets(self):
+        # there are tickets present on account -> should return not null
+        th = TicketHandler()
+        tickets = th.get_page_of_tickets()
+        self.assertIsNotNone(tickets)

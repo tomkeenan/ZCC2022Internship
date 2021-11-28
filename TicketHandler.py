@@ -4,9 +4,10 @@ import requests
 
 # class to handle tickets returned by Zendesk API
 class TicketHandler:
+    _PAGE_LENGTH = 25
     def __init__(self):
         self._user_info = self._read_user_info()
-        self._url = f'https://{self._user_info["subdomain"]}.zendesk.com/api/v2/tickets.json?page[size]=25'
+        self._url = f'https://{self._user_info["subdomain"]}.zendesk.com/api/v2/tickets.json?page[size]={self._PAGE_LENGTH}'
         self._current_page = 1
 
     # public for testing purposes
