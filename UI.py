@@ -19,6 +19,16 @@ class UI:
                 self.__display_page_of_tickets()
             elif command == '2':
                 self.__display_ticket_from_id(1)
+            elif command == '+':
+                if self.ticket_handler.page_next() is None:
+                    self.__display_page_of_tickets()
+                else:
+                    print('Error: There is no next page\n')
+            elif command == '-':
+                if self.ticket_handler.page_prev() is None:
+                    self.__display_page_of_tickets()
+                else:
+                    print('Error: There is no previous page\n')
             elif command == 'menu':
                 self.__display_menu()
             elif command == 'exit':
@@ -68,6 +78,8 @@ class UI:
         print("\n----------------------------------------\n"
               "-> Enter 1 to view all tickets on current page\n"
               "-> Enter 2 to view a ticket by it's ID\n"
+              "-> Enter \'+\' to view the next page\n"
+              "-> Enter \'-\' to view the previous page\n"
               "-> Enter \'menu\' to view this menu\n"
               "-> Enter \'exit\' to close the program\n"
               "----------------------------------------\n")

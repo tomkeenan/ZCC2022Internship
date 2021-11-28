@@ -35,3 +35,27 @@ class ZccTests(unittest.TestCase):
         # not present in account
         ticket = th.get_ticket_from_id(9999)
         self.assertIsNone(ticket)
+
+    def test_page_next(self):
+        # check method only pages when there is a next page
+        # should return -1 when paging is not possible
+        th = TicketHandler()
+        # testing on account with 101 tickets using PAGE_LENGTH 25
+        self.assertIsNone(th.page_next())
+        self.assertIsNone(th.page_next())
+        self.assertIsNone(th.page_next())
+        self.assertIsNone(th.page_next())
+        self.assertEqual(th.page_next(),-1)
+
+    def test_page_prev(self):
+        # check method only pages when there is a previous page
+        # should return -1 when paging is not possible
+        th = TicketHandler()
+        # testing on account with 101 tickets using PAGE_LENGTH 25
+        self.assertEqual(th.page_prev(), -1)
+        th.page_next()
+        th.page_next()
+        self.assertIsNone(th.page_prev())
+        self.assertIsNone(th.page_prev())
+
+

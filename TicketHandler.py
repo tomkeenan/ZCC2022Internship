@@ -44,6 +44,28 @@ class TicketHandler:
         data = response.json()
         return data['ticket']
 
+    # requests next page of tickets
+    # returns -1 if there is no next page
+    def page_next(self):
+        data = self._request_data(self._url)
+        if data['meta']['has_more']:
+            self._current_page += 1
+            self._url = data['links']['next']
+            self.get_page_of_tickets()
+        else:
+            return -1
+
+    # requests previous page of tickets
+    # returns -1 if there is no previous page
+    def page_prev(self):
+        data = self._request_data(self._url)
+        if self._current_page > 1:
+            self._url = data['links']['prev']
+            self._current_page -= 1
+            self.get_page_of_tickets()
+        else:
+            return -1
+
     @staticmethod
     def _read_user_info():
         with open("user_info.json", 'r') as file:
