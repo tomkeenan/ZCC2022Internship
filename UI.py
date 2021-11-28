@@ -4,7 +4,7 @@ from TicketHandler import TicketHandler
 
 class UI:
     def __init__(self):
-        self.ticket_handler = TicketHandler()
+        self._ticket_handler = TicketHandler()
 
     def run(self):
         self.__start_menu()
@@ -23,12 +23,12 @@ class UI:
             elif command == '2':
                 self.__read_ticket_id_from_user()
             elif command == '+':
-                if self.ticket_handler.page_next() is None:
+                if self._ticket_handler.page_next() is None:
                     self.__display_page_of_tickets()
                 else:
                     print('Error: There is no next page\n')
             elif command == '-':
-                if self.ticket_handler.page_prev() is None:
+                if self._ticket_handler.page_prev() is None:
                     self.__display_page_of_tickets()
                 else:
                     print('Error: There is no previous page\n')
@@ -42,17 +42,17 @@ class UI:
     # displays a ticket page on console
     # returns -1 if there are no tickets on account
     def __display_page_of_tickets(self):
-        tickets = self.ticket_handler.get_page_of_tickets()
+        tickets = self._ticket_handler.get_page_of_tickets()
         if tickets is None:
             return -1
         print()
         for ticket in tickets:
             self.__display_ticket_info(ticket, False)
-        print(f'Page {self.ticket_handler.get_page()}\n')
+        print(f'Page {self._ticket_handler.get_page()}\n')
 
     # displays a ticket with its description on console if the ticket with id is present
     def __display_ticket_from_id(self, ticket_id):
-        ticket = self.ticket_handler.get_ticket_from_id(ticket_id)
+        ticket = self._ticket_handler.get_ticket_from_id(ticket_id)
         if ticket is not None:
             print()
             self.__display_ticket_info(ticket, True)
