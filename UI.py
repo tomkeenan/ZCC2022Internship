@@ -35,7 +35,7 @@ class UI:
             elif command == 'menu':
                 self.__display_menu()
             elif command == 'exit':
-                break
+                self.__goodbye()
             else:
                 print('Error: Invalid Command')
 
@@ -48,6 +48,7 @@ class UI:
         print()
         for ticket in tickets:
             self.__display_ticket_info(ticket, False)
+        print(f'Page {self.ticket_handler.get_page()}\n')
 
     # displays a ticket with its description on console if the ticket with id is present
     def __display_ticket_from_id(self, ticket_id):

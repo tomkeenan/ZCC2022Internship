@@ -66,6 +66,9 @@ class TicketHandler:
         else:
             return -1
 
+    def get_page(self):
+        return self._current_page
+
     @staticmethod
     def _read_user_info():
         with open("user_info.json", 'r') as file:
