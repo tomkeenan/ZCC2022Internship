@@ -1,4 +1,4 @@
-from UI import UI
+from src.UI import UI
 
 
 def main():
