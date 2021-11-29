@@ -2,7 +2,7 @@ import json
 import requests
 
 
-# class to handle tickets returned by Zendesk API
+# uses requests library to handle all api requests
 class TicketHandler:
     _PAGE_LENGTH = 25
 
@@ -68,12 +68,12 @@ class TicketHandler:
         else:
             return -1
 
-    def get_page(self):
+    def get_current_page(self):
         return self._current_page
 
     @staticmethod
     def _read_user_info():
         with open("resources/user_info.json", 'r') as file:
-            credentials = json.load(file)
-            return credentials
+            user_info = json.load(file)
+            return user_info
 

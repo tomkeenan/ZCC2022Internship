@@ -2,6 +2,7 @@ from datetime import datetime
 from src.TicketHandler import TicketHandler
 
 
+# CLI User Interface for user to display information received from TicketHandler
 class UI:
     def __init__(self):
         self._ticket_handler = TicketHandler()
@@ -48,7 +49,7 @@ class UI:
         print()
         for ticket in tickets:
             self.__display_ticket_info(ticket, False)
-        print(f'Page {self._ticket_handler.get_page()}\n')
+        print(f'Page {self._ticket_handler.get_current_page()}\n')
 
     # displays a ticket with its description on console if the ticket with id is present
     def __display_ticket_from_id(self, ticket_id):
@@ -61,6 +62,8 @@ class UI:
             print(f"Ticket with ID {ticket_id} not found")
             self.__display_menu()
 
+    # reads input from user until an integer is entered
+    # prints ticket with its description if input is a valid ticket_id
     def __read_ticket_id_from_user(self):
         while 1:
             ticket_id = input("Enter ID of ticket: ")

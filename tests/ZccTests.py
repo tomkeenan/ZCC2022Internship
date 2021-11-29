@@ -27,11 +27,9 @@ class ZccTests(unittest.TestCase):
     def test_get_ticket_from_id(self):
         # check method has correct return values
         th = TicketHandler()
-
         # present in account
         ticket = th.get_ticket_from_id(1)
         self.assertIsNotNone(ticket)
-
         # not present in account
         ticket = th.get_ticket_from_id(9999)
         self.assertIsNone(ticket)
