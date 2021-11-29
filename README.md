@@ -17,14 +17,14 @@ Download or clone this repository then run below command from project folder. Ma
     python3 src/main.py
 
 ## Run tests
-To run tests run the below command from project folder.
+Run the below command from project folder.
 
-    python3 tests/ZccTests.py
+    python3 ZccTests.py
 
  
 ## Project Structure
 
-My  goal when designing this project was to focus on simplicity. The user interface is minimal and clean. The project has minimal dependencies and there are not too many files.
+My goal when designing this project was to focus on simplicity. The user interface is minimal and clean. The project has minimal dependencies.
 
 **TicketHandler** :
 
