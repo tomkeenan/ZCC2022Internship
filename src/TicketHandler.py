@@ -73,7 +73,7 @@ class TicketHandler:
 
     @staticmethod
     def _read_user_info():
-        with open("resources/user_info.json", 'r') as file:
+        with open("user_info.json", 'r') as file:
             user_info = json.load(file)
             return user_info
 

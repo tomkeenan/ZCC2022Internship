@@ -1,5 +1,5 @@
 from datetime import datetime
-from src.TicketHandler import TicketHandler
+from TicketHandler import TicketHandler
 
 
 # CLI User Interface for user to display information received from TicketHandler
