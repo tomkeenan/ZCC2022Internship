@@ -1,23 +1,25 @@
 # Zendesk Ticket Viewer
 
 Created by: Tom Keenan
-Submission for: 2022 Zendesk Internship Coding Challenge
+
+Submission for: **2022 Zendesk Internship Coding Challenge**
 
 
 
 ## Dependencies
 Python 3.8.0
+
 requirements.txt
 
 ## Run project
-Download or clone this repository then run below command from project folder.
+Download or clone this repository then run below command from project folder. Make sure user_info.json file is included in project folder with your Zendesk authentication credientials.
 
-    python3 /src/main.py
+    python3 src/main.py
 
 ## Run tests
 To run tests run the below command from project folder.
 
-    python3 /tests/ZccTests.py
+    python3 tests/ZccTests.py
 
  
 ## Project Structure
